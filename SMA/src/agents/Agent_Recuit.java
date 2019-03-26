@@ -5,6 +5,7 @@ import comportement.*;
 
 public class Agent_Recuit extends Agent{
 	protected void setup() {
-//		addBehaviour();
+		Algo_Recuit A = new Algo_Recuit();
+		addBehaviour(A);
 	}
 }
