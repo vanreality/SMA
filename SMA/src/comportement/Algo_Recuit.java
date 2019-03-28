@@ -65,8 +65,8 @@ public class Algo_Recuit extends Behaviour {
 		}
 		System.out.println(T);
 		long fin = System.currentTimeMillis();
-		long durée = fin-debut;
-		System.out.println("dur�e d'ex�cution = " + durée );
+		long duree = fin-debut;
+		System.out.println("durée d'exécution = " + duree );
 	}
 	
 	public boolean done(){
