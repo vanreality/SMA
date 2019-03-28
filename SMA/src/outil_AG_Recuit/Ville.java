@@ -1,4 +1,4 @@
-package comportement;
+package outil_AG_Recuit;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,10 +1,10 @@
 package comportement;
 
 import jade.core.behaviours.Behaviour;
+import outil_AG_Recuit.Population;
+import outil_AG_Recuit.Ville;
 
 public class Algo_AG extends Behaviour{
-
-	@Override
 	public void action() {
 		Ville[] carte = new Ville[] {new Ville("Bordeaux", new int[] {0,780,320,580,480,660}),
 				new Ville("Lyon", new int[] {780,0,700,460,300,200}),
@@ -20,9 +20,7 @@ public class Algo_AG extends Behaviour{
 
 		for(int i =0;i<generations;i++) {
 			population.Selection();
-	
 			population.Reproduction(n);
-				
 			population.Mutation(p);
 		}
 		population.tri();

@@ -1,5 +1,7 @@
 package comportement;
 import jade.core.behaviours.Behaviour;
+import outil_AG_Recuit.Trajet;
+import outil_AG_Recuit.Ville;
 import jade.core.Agent; 
 
 public class Algo_Recuit extends Behaviour {
