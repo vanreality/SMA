@@ -1,39 +1,110 @@
 package outil_Tabou;
 
-public class Donnees {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+public class Donnees {
+    
 	public int [][] matriceDonnees;
 	public Ville [] villesDonneesOrdonneesParId;
 	
 	public Donnees() {
-		/************************* ICI AJOUTER LES VILLES *****************/ // La ville de départ est la première ville ci-dessous.
-		
-		for (int i=0;i<500;i++) {
-			villesDonneesOrdonneesParId[i]=new Ville("");
-		}
-		
-		
-		 
-		Ville Bordeaux= new Ville("Bordeaux"); // VILLE DE DEPART
-		 Ville Lyon= new Ville("Lyon");
-		 Ville Nantes=new Ville("Nantes");
-		 Ville Paris= new Ville("Paris");
-		 Ville Marseille=new Ville("Marseille");
-		 Ville Dijon= new Ville("Dijon");
-		
-		/******************************************************************/
-		
-		 this.villesDonneesOrdonneesParId= new Ville [] {Bordeaux, Lyon, Nantes,Paris, Marseille, Dijon};
-		
-		this.matriceDonnees= new int [][] {
-	 		{0,780,320,580,480,660},
-	 		{780,0,700,460,300,200},
-	 		{320,700,0,380,820,630},
-	 		{580,460,380,0,750,310},
-	 		{480,300,820,750,0,500},
-	 		{660,200,630,310,500,0},
-		 };
+		File file= new File ("C:\\Users\\Utilisateur\\Downloads\\ICO\\ICO local\\data\\data.csv");
+						
+		this.villesDonneesOrdonneesParId=this.constructionListeVilles(file);
+
+		this.matriceDonnees=this.constructionMatriceDonnees(file);
 	}
+			
+	public Ville[] constructionListeVilles(File file) {
+
+	        String[] nomsVillesData = null;
+	        String[] nomsVilles=null;
+	        String sep = new Character(',').toString();
+	        FileReader fr;
+	        
+	        
+			try {
+				fr = new FileReader(file);
+				BufferedReader br = new BufferedReader(fr);
+		        nomsVillesData=br.readLine().split(sep);
+		        
+		        
+		        br.close();
+		        fr.close();
+
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			nomsVilles= new String [nomsVillesData.length];
+	        for (int i=1; i<nomsVillesData.length;i++) {
+	        	nomsVilles[i-1]=nomsVillesData[i];
+	  
+	        }
+	        
+	        Ville[] listeVilles=new Ville[nomsVilles.length];
+	        
+			for (int i=0;i<nomsVilles.length;i++) {
+				listeVilles[i]=new Ville(nomsVilles[i]);
+			}
+	        
+			return listeVilles;
+	    }
 	
+	public int[][] constructionMatriceDonnees(File file) {
+
+
+	        String sep = new Character(',').toString();
+	        FileReader fr;
+	        
+	        
+			try {
+				fr = new FileReader(file);
+				BufferedReader br = new BufferedReader(fr);
+				
+				int len=br.readLine().split(sep).length-1; // On enlève la première ligne qui contient les noms des villes
+				
+		        int[][] matriceDonnees=new int[len][len];
+				
+		        
+				for (int i=0;i<len;i++) { // On va parcourir chaque ligne du fichier scv contenant des donnees
+					String[] tableauTemp=br.readLine().split(sep); // on cree un tableau temporaire contenant la liste des donnees sous forme de string
+					for (int k=0;k<len;k++) {
+						matriceDonnees[i][k]=(int)Float.parseFloat(tableauTemp[k+1]); // on convertit les elements de tableauTemp en int qu'on ajoute à la matrice
+					}
+				}
+			
+		        br.close();
+		        fr.close();
+				return matriceDonnees;
+
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return matriceDonnees;
+	       
+	    }
+    
+	public static void main(String[] args) {
+    	
+    	Donnees donnees=new Donnees();
+    	
+    	System.out.println(donnees.villesDonneesOrdonneesParId[300]);
+    
+    	System.out.println(donnees.matriceDonnees[499][498]);
+    	
+    }
 }
 
