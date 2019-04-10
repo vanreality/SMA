@@ -14,7 +14,7 @@ public class Donnees {
 	public Ville [] villesDonneesOrdonneesParId;
 	
 	public Donnees() {
-		File file= new File ("C:\\Users\\Utilisateur\\Downloads\\ICO\\ICO local\\data\\data.csv");
+		File file= new File ("./donnees/data.csv");
 						
 		this.villesDonneesOrdonneesParId=this.constructionListeVilles(file);
 
@@ -27,7 +27,6 @@ public class Donnees {
 	        String[] nomsVilles=null;
 	        String sep = new Character(',').toString();
 	        FileReader fr;
-	        
 	        
 			try {
 				fr = new FileReader(file);
