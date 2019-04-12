@@ -302,7 +302,7 @@ public class Ordonnancement {
 			}
 			
 		}
-					
+		System.out.println("Meilleure solution trouvée lors de l'iteration "+meilleurIter+"");				
 		return meilleureSol;
 	}
 	
@@ -408,7 +408,7 @@ public class Ordonnancement {
 				
 				for (int i=1; i<listeVoisinsTabou.size();i++) {
 					int coutTemp= listeVoisinsTabou.get(i).calculCout();
-					if (coutTemp<meilleurCoutCourant) {
+					if (coutTemp<meilleureSol.calculCout()) {
 						meilleurCoutCourant=coutTemp;
 						meilleurVoisinTabou=i;
 					}
@@ -482,7 +482,7 @@ public class Ordonnancement {
 			}
 		
 		}
-					
+		System.out.println("Meilleure solution trouvée lors de l'iteration "+meilleurIter+"");						
 		return meilleureSol;
 	}
 	
@@ -498,7 +498,7 @@ public class Ordonnancement {
     	for (int i=0; i<this.ordo.length-1;i++) {
     		s+=this.ordo[i].nom+", ";
     	}
-    	s+=this.ordo[this.ordo.length-1].nom+"} de coût égal à "+this.calculCout()+"\n";
+    	s+=this.ordo[this.ordo.length-1].nom+"} \n Le coût de cet ordonnancement est égal à "+this.calculCout()+"\n";
 		return s;
     }
 	
@@ -511,8 +511,21 @@ public class Ordonnancement {
 		
 		 Donnees donnees=new Donnees();
 		 
-		 Voyage Voyage1=new Voyage(donnees,6);
+		 Voyage Voyage1=new Voyage(donnees,50);
 		 
+		 Ordonnancement ordo1= new Ordonnancement(Voyage1.villesOrdonneesParId, Voyage1);
+		 
+		 System.out.println("Ordonnancement initial:");
+		 
+		 System.out.println(ordo1);
+		 
+		 System.out.println("Utilisation de l'algorithme Tabou 1");
+		 
+		 System.out.println(ordo1.Tabou1(10, 3, 10));		 
+		 		 
+		 System.out.println("Utilisation de l'algorithme Tabou 1 amélioré");
+		 
+		 System.out.println(ordo1.Tabou2(10, 3, 10));
 		 
 		 // ALGORITHMES VOISINS
 		 
@@ -534,9 +547,6 @@ public class Ordonnancement {
 		 
 		 // ALGORITHME TABOU
 		 
-		 Ordonnancement ordo1= new Ordonnancement(Voyage1.villesOrdonneesParId, Voyage1);
-		 		 
-		 System.out.println(ordo1.Tabou2(10, 1, 50));
 		 
 	}
 	
