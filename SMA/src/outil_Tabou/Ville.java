@@ -28,7 +28,7 @@ public class Ville {
 
 	 public static void main(String[] args) {
 		 
-		 /*
+		 
 		 Ville Bordeaux= new Ville("B");
 		 Ville Lyon= new Ville("L");
 		 Ville Nantes=new Ville("N");
@@ -42,7 +42,7 @@ public class Ville {
 		 System.out.print(Paris);
 		 System.out.print(Marseille);
 		 System.out.print(Dijon);		 
-		 */
+		 
 		 
 	 }
 	 
