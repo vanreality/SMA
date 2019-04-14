@@ -14,7 +14,7 @@ public class Donnees {
 	public Ville [] villesDonneesOrdonneesParId;
 	
 	public Donnees() {
-		File file= new File ("C:\\Users\\Utilisateur\\Downloads\\ICO\\ICO local\\data\\data.csv");
+		File file= new File ("./donnees/data.csv");
 						
 		this.villesDonneesOrdonneesParId=this.constructionListeVilles(file);
 
@@ -27,7 +27,6 @@ public class Donnees {
 	        String[] nomsVilles=null;
 	        String sep = new Character(',').toString();
 	        FileReader fr;
-	        
 	        
 			try {
 				fr = new FileReader(file);
@@ -71,7 +70,7 @@ public class Donnees {
 				fr = new FileReader(file);
 				BufferedReader br = new BufferedReader(fr);
 				
-				int len=br.readLine().split(sep).length-1; // On enlève la première ligne qui contient les noms des villes
+				int len=br.readLine().split(sep).length-1; // On enlï¿½ve la premiï¿½re ligne qui contient les noms des villes
 				
 		        int[][] matriceDonnees=new int[len][len];
 				
@@ -79,7 +78,7 @@ public class Donnees {
 				for (int i=0;i<len;i++) { // On va parcourir chaque ligne du fichier scv contenant des donnees
 					String[] tableauTemp=br.readLine().split(sep); // on cree un tableau temporaire contenant la liste des donnees sous forme de string
 					for (int k=0;k<len;k++) {
-						matriceDonnees[i][k]=(int)Float.parseFloat(tableauTemp[k+1]); // on convertit les elements de tableauTemp en int qu'on ajoute à la matrice
+						matriceDonnees[i][k]=(int)Float.parseFloat(tableauTemp[k+1]); // on convertit les elements de tableauTemp en int qu'on ajoute ï¿½ la matrice
 					}
 				}
 			
