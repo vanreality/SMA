@@ -106,3 +106,5 @@ public class Donnees {
     	
     }
 }
+
+// Arrays.copyOfRange(liste,1,liste.size)

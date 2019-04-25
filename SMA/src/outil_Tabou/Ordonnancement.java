@@ -302,7 +302,7 @@ public class Ordonnancement {
 			}
 			
 		}
-		System.out.println("Meilleure solution trouvée lors de l'iteration "+meilleurIter+"");				
+		//System.out.println("Meilleure solution trouvée lors de l'iteration "+meilleurIter+"");				
 		return meilleureSol;
 	}
 	
@@ -482,7 +482,7 @@ public class Ordonnancement {
 			}
 		
 		}
-		System.out.println("Meilleure solution trouvée lors de l'iteration "+meilleurIter+"");						
+		//System.out.println("Meilleure solution trouvée lors de l'iteration "+meilleurIter+"");						
 		return meilleureSol;
 	}
 	
@@ -511,7 +511,7 @@ public class Ordonnancement {
 		
 		 Donnees donnees=new Donnees();
 		 
-		 Voyage Voyage1=new Voyage(donnees,50);
+		 Voyage Voyage1=new Voyage(donnees,500);
 		 
 		 Ordonnancement ordo1= new Ordonnancement(Voyage1.villesOrdonneesParId, Voyage1);
 		 
@@ -519,13 +519,13 @@ public class Ordonnancement {
 		 
 		 System.out.println(ordo1);
 		 
-		 System.out.println("Utilisation de l'algorithme Tabou 1");
+		 /*System.out.println("Utilisation de l'algorithme Tabou 1");
 		 
-		 System.out.println(ordo1.Tabou1(10, 3, 10));		 
+		 System.out.println(ordo1.Tabou1(1000, 2, 100));		 */
 		 		 
 		 System.out.println("Utilisation de l'algorithme Tabou 1 amélioré");
 		 
-		 System.out.println(ordo1.Tabou2(10, 3, 10));
+		 for (int i=0;i<50;i++) System.out.println(ordo1.Tabou2(1000, 2, 100));
 		 
 		 // ALGORITHMES VOISINS
 		 
