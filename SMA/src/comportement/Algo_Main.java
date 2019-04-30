@@ -9,6 +9,7 @@ import jade.lang.acl.ACLMessage;
 public class Algo_Main extends Behaviour {
 
 	int i = 0;
+	int algo = 1;
 	int n = 5;
 	ArrayList<Integer> ordoCourant;
 	int coutCourant = Integer.MAX_VALUE;
@@ -28,6 +29,7 @@ public class Algo_Main extends Behaviour {
 	}
 	public void action()
 	{
+		
 		executeAlgo("ag");
 		
 		i++;

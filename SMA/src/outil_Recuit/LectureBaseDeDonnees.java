@@ -1,4 +1,4 @@
-package outil_AG_Recuit;
+package outil_Recuit;
 
 import java.io.File;
 import java.io.FileOutputStream;

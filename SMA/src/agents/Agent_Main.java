@@ -9,6 +9,9 @@ public class Agent_Main extends Agent {
 	{
 		
 		Algo_Main main = new Algo_Main();
+		
+		
+		
 		addBehaviour(main);
 		
 	}

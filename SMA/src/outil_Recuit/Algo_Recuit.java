@@ -1,4 +1,4 @@
-package outil_AG_Recuit;
+package outil_Recuit;
 
 import outil_AG_Recuit.LectureBaseDeDonnees;
 import outil_AG_Recuit.LigneTableau;

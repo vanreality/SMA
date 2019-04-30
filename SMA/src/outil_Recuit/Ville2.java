@@ -1,4 +1,4 @@
-package outil_AG_Recuit;
+package outil_Recuit;
 
 
 public class Ville2 {
