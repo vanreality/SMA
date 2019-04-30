@@ -1,4 +1,4 @@
-package comportement;
+package outil_AG_Recuit;
 
 import outil_AG_Recuit.LectureBaseDeDonnees;
 import outil_AG_Recuit.LigneTableau;
@@ -63,7 +63,7 @@ public class Algo_Recuit{
 	 * Le constructeur suivant est celui qu'on utilise lorsque l'on veut faire communiquer les agents entre eux. En effet, l'argument carteString correspond à ce que l'agent précédent 
 	 * va donner à l'agent Recuit pour initialiser son fonctionnement.
 	 */
-	
+		
 
 	public Algo_Recuit(int nbVilles, int param1, double param2, double param3, String carteString) {
 		this.nbVilles = nbVilles;
@@ -288,4 +288,5 @@ public class Algo_Recuit{
 			return resultat; // Retourne le trajet optimal avec les villes sous forme d'un String de la liste. A mettre dans le done de l'agent.
 	}
 }
+
 

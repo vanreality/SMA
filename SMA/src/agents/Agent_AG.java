@@ -1,10 +1,14 @@
-package agents;
-
 import jade.core.Agent;
-import comportement.*;
 
-public class Agent_AG extends Agent{
-	protected void setup() {
-//		addBehaviour();
+import comportement.Algo_AG;
+
+
+public class Agent_AG extends Agent {
+
+
+	protected void setup()
+	{
+		addBehaviour(new Algo_AG());
 	}
+	
 }
