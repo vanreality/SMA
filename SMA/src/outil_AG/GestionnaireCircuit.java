@@ -16,7 +16,7 @@ public class GestionnaireCircuit {
 	
 	public GestionnaireCircuit() {
 		super();
-		File file= new File ("C:\\Users\\Faucon\\Google Drive\\centrale\\Projet\\Serveur\\BDD.csv");
+		File file= new File ("./donnees/data.csv");
 		this.villesDonneesOrdonneesParId=this.constructionListeVilles(file);
 		this.matriceDonnees=this.constructionMatriceDonnees(file);
 	}

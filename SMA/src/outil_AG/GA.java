@@ -137,7 +137,7 @@ public class GA {
 		GestionnaireCircuit gc = new GestionnaireCircuit();
 		
 		// Variable définissant la longueur de circuit à utiliser
-		int longueurcircuit = 5;
+		int longueurcircuit = 500;
 		
 		int len = Math.min(gc.villesDonneesOrdonneesParId.length-1, longueurcircuit);
 		for (int i=0; i<len; i++) {
@@ -153,7 +153,7 @@ public class GA {
 	   // On fait evoluer notre population sur 100 generations
 	   GA ga = new GA(gc);
 	   pop = ga.evoluerPopulation(pop);
-	   for (int i=0; i<100; i++) {
+	   for (int i=0; i<1000; i++) {
 	      pop = ga.evoluerPopulation(pop);
 	   }
 	   
