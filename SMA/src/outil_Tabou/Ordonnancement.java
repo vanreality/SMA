@@ -522,10 +522,10 @@ public class Ordonnancement {
 		 /*System.out.println("Utilisation de l'algorithme Tabou 1");
 		 
 		 System.out.println(ordo1.Tabou1(1000, 2, 100));		 */
-		 		 
+		 	/*
 		 System.out.println("Utilisation de l'algorithme Tabou 1 amélioré");
 		 
-		 for (int i=0;i<50;i++) System.out.println(ordo1.Tabou2(1000, 2, 100));
+		 for (int i=0;i<500;i++) System.out.println(ordo1.Tabou2(1000, 2, 100));
 		 
 		 // ALGORITHMES VOISINS
 		 
