@@ -65,6 +65,9 @@ public class Algo_Recuit{
 	 */
 		
 
+	
+	
+	
 	public Algo_Recuit(int nbVilles, int param1, double param2, double param3, String carteString) {
 		this.nbVilles = nbVilles;
 		this.param1 = param1; // palier
@@ -148,11 +151,13 @@ public class Algo_Recuit{
 		
 		
 		//Initialisation des fichiers pour écrire dedans
+		/*
 		File DUREES = new File("C:/Users/Camille/Documents/Centrale 2018-2019/ICO/Projet/Durées.txt"); // DUREES est le fichier qui va contenir les durées de parcours
 		DUREES.createNewFile();
 		File DISTANCES = new File("C:/Users/Camille/Documents/Centrale 2018-2019/ICO/Projet/Distances.txt");
 		FileWriter writer_DUREES = new FileWriter(DUREES);
 		FileWriter writer_DISTANCES = new FileWriter(DISTANCES);
+		*/
 		
 		
 		for (int n=0; n<=iter; n++) {
@@ -203,16 +208,19 @@ public class Algo_Recuit{
 			long durée = fin-debut;
 			String duree = Long.toString(durée); // On convertit durée en string pour pouvoir l'écrire dans le fichier texte
 			//System.out.println(duree);
+			/*
 			writer_DUREES.write(duree);
 			writer_DUREES.write("\n");
 			writer_DISTANCES.write(fit_string);
 			writer_DISTANCES.write("\n");
+			*/
 			//BufferedWriter.newLine();
 			liste_durées[n]=durée;
 			somme_durées += durée;
 			//System.out.println("durée d'exécution = " + durée );
 			
 		}
+		/*
 		writer_DUREES.flush();
 		writer_DUREES.close();	
 		writer_DISTANCES.flush();
