@@ -511,7 +511,7 @@ public class Ordonnancement {
 		
 		 Donnees donnees=new Donnees();
 		 
-		 Voyage Voyage1=new Voyage(donnees,500);
+		 Voyage Voyage1=new Voyage(donnees,5);
 		 
 		 Ordonnancement ordo1= new Ordonnancement(Voyage1.villesOrdonneesParId, Voyage1);
 		 
