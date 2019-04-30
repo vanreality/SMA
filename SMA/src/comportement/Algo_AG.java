@@ -1,9 +1,7 @@
 package comportement;
 
 import java.util.ArrayList;
-
 import outil_AG.*;
-
 import jade.core.AID;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -19,6 +17,30 @@ public class Algo_AG extends CyclicBehaviour{
 			String message = msg.getContent();
 			ArrayList<Integer> listeId = recupId(message);
 			
+			Circuit meilleurCircuit = mainAG(listeId);
+			ArrayList<Integer> cId = new ArrayList<Integer>();
+			for (Ville v: meilleurCircuit.getCircuit()) {
+				cId.add(v.getId());
+			}			
+			
+			System.out.println("Distance finale : " + meilleurCircuit.getDistance());
+			System.out.println("Meilleur "+meilleurCircuit.toString());
+			System.out.println("Longueur de circuit = "+meilleurCircuit.getCircuit().size());	
+			System.out.println(cId.toString());	
+			
+			ACLMessage ret = msg.createReply();
+			ret.setContent((int)meilleurCircuit.getDistance()+"/"+cId.toString());
+			myAgent.send(ret);
+
+			
+		}
+		else
+		{
+			block();
+		}
+	}
+	
+	private Circuit mainAG(ArrayList<Integer> listeId){
 			// TODO Auto-generated method stub
 			// Variable définissant la longueur de circuit à utiliser
 			int longueurcircuit = listeId.size();
@@ -51,22 +73,7 @@ public class Algo_AG extends CyclicBehaviour{
 			}
 		   
 			Circuit meilleurCircuit = pop.getFittest();
-			ArrayList<Integer> cId = new ArrayList<Integer>();
-			for (Ville v: meilleurCircuit.getCircuit()) {
-				cId.add(v.getId());
-			}
-			ACLMessage ret = msg.createReply();
-			ret.setContent(cId.toString());
-			myAgent.send(ret);
-//			System.out.println("Distance finale : " + meilleurCircuit.getDistance());
-//			System.out.println("Meilleur "+meilleurCircuit.toString());
-//			System.out.println("Longueur de circuit = "+meilleurCircuit.getCircuit().size());	
-			
-		}
-		else
-		{
-			block();
-		}
+			return meilleurCircuit;
 	}
 	
 	private ArrayList<Integer> recupId(String message)

@@ -127,7 +127,7 @@ public class GA {
 			newpop.sauvegarderCircuit(i, this.muter(newpop.getCircuit(i)));
 		}
 
-		System.out.println("Distance actuelle : " + newpop.getFittest().getDistance());
+	//	System.out.println("Distance actuelle : " + newpop.getFittest().getDistance());
 		
 		return newpop;
 	}

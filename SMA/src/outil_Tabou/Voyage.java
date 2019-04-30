@@ -1,8 +1,6 @@
 package outil_Tabou;
 
-import java.io.IOException;
-
-import autre.BaseDeDonneesIA;
+import java.util.ArrayList;
 
 public class Voyage {
 	
@@ -27,7 +25,7 @@ public class Voyage {
 
 		this.matriceVoyage=new int [tailleVoyage][tailleVoyage];
 
-		for (int i=0; i<tailleVoyage;i++) {
+		for (int i=0; i<tailleVoyage-1;i++) {
 			for (int j=i;j<tailleVoyage;j++) {
 				int a = donnees.matriceDonnees[i][j];
 				this.matriceVoyage[i][j]=a;
@@ -36,26 +34,29 @@ public class Voyage {
 		}
 	}
 	
-	
-	public static void main(String[] args) throws IOException {
+	// constructeur de voyage à partir d'une liste id de ville
+	public Voyage(Donnees donnees, ArrayList<Integer> listId)
+	{
+		this.tailleVoyage = listId.size();
 		
-
-		 Donnees donnees=new Donnees();
-		 
-		 Voyage Voyage1=new Voyage(donnees,5);
-		 
-		 System.out.println(Voyage1.villesOrdonneesParId[4]);
-
-		 
-		 System.out.println(Voyage1.matriceVoyage[4][3]);
-
-
-		 System.out.println(Voyage1.matriceVoyage[3][2]);
-
-		 
-		 System.out.println(Voyage1.matriceVoyage[4][2]);
+		this.villesOrdonneesParId = new Ville[tailleVoyage];
+		for (int i=0 ; i < tailleVoyage ; i++) 
+		{
+			this.villesOrdonneesParId[i] = donnees.villesDonneesOrdonneesParId[ listId.get(i) ];
+		}
 		
+		this.matriceVoyage = new int [tailleVoyage][tailleVoyage];
+		for (int i=0; i<tailleVoyage-1;i++) 
+		{
+			for (int j=i;j<tailleVoyage;j++) 
+			{
+				int a = donnees.matriceDonnees[i][j];
+				this.matriceVoyage[i][j]=a;
+				this.matriceVoyage[j][i]=a;
+			}
+		}
 	}
+	
 }
 
 

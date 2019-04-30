@@ -1,3 +1,5 @@
+package agents;
+
 import jade.core.Agent;
 
 import comportement.Algo_AG;

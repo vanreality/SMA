@@ -10,7 +10,11 @@ public class Ordonnancement {
 	public Voyage voyage;	
 	
 	public Ordonnancement(Ville [] villes, Voyage voyage) {
-		this.ordo=villes;
+		this.ordo = new Ville[villes.length];
+		for(int k = 0 ; k < villes.length ; k++)
+		{
+			ordo[k] = villes[k];
+		}
 		this.voyage=voyage;
 		this.cout=0;
 	}
@@ -34,9 +38,20 @@ public class Ordonnancement {
 		
 	public int calculCout() {
 		this.cout=0;
-		for (int i=0; i<this.ordo.length-1;i++) {
+		
+		// debug
+		//for(int k = 0 ; k < ordo.length ; k++) System.out.println( ordo[k]);
+		
+		//System.out.println(voyage.matriceVoyage.length);
+		
+		for (int i=0; i<this.ordo.length-1;i++) 
+		{
+		//	System.out.println("debut");
+		//	System.out.println(i);
+		//	System.out.println(this.ordo[i].id);
+		//	System.out.println(this.ordo[i+1].id);
 			this.cout+=this.voyage.matriceVoyage[this.ordo[i].id][this.ordo[i+1].id];
-			}
+		}
 		cout+=this.voyage.matriceVoyage[this.ordo[this.ordo.length-1].id][this.ordo[0].id];
 		return this.cout;
 	}
@@ -504,6 +519,21 @@ public class Ordonnancement {
 	
 	
 	/******************************************************************************/
+	/*                             FONCTION pour AGENT                                      */
+	/******************************************************************************/
+	
+	public ArrayList<Integer> genereId()
+	{
+		ArrayList<Integer> listeId = new ArrayList<Integer>();
+		for(int k = 0 ; k < ordo.length ; k++)
+		{
+			listeId.add(ordo[k].id);
+		}
+		return listeId;
+	}
+	
+	
+	/******************************************************************************/
 	/*                             FONCTION MAIN                                  */
 	/******************************************************************************/
 		
@@ -522,10 +552,10 @@ public class Ordonnancement {
 		 /*System.out.println("Utilisation de l'algorithme Tabou 1");
 		 
 		 System.out.println(ordo1.Tabou1(1000, 2, 100));		 */
-		 	/*
+		 		 
 		 System.out.println("Utilisation de l'algorithme Tabou 1 amélioré");
 		 
-		 for (int i=0;i<500;i++) System.out.println(ordo1.Tabou2(1000, 2, 100));
+		 for (int i=0;i<50;i++) System.out.println(ordo1.Tabou2(1000, 2, 100));
 		 
 		 // ALGORITHMES VOISINS
 		 

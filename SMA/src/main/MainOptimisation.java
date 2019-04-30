@@ -8,13 +8,21 @@ public class MainOptimisation {
 		jade.core.Runtime rt = jade.core.Runtime.instance();
 		ProfileImpl pMain = new ProfileImpl(null, 2222, "Platform");
 		AgentContainer mc = rt.createMainContainer(pMain);
-		AgentController rma;
+		AgentController rma, main, tabou, ag;
 		try {
+			
 			rma = mc.createNewAgent("rma", "jade.tools.rma.rma", null);
 			rma.start();
 			
-//			mc.createNewAgent("A", "myAgent.AgentA", null).start();
-//			mc.createNewAgent("B", "myAgent.AgentB", null).start();
+			main = mc.createNewAgent("main", "agents.Agent_Main", null);
+			main.start();
+			
+			tabou = mc.createNewAgent("tabou", "agents.Agent_Tabou", null);
+			tabou.start();
+			
+			ag = mc.createNewAgent("ag", "agents.Agent_AG", null);
+			ag.start();
+
 		} catch (StaleProxyException e) {
 			e.printStackTrace();
 		}
